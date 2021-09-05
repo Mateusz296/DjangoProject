@@ -23,7 +23,7 @@ from django.contrib.auth.views import LoginView
 
 from viewer.views import generate_demo
 
-from accounts.views import SubmittableLoginView, SubmittablePasswordChangeForm
+from accounts.views import SubmittableLoginView, SubmittablePasswordChangeForm, SignUpView
 
 from django.contrib.auth import views
 
@@ -40,6 +40,7 @@ urlpatterns = [
     path('password_reset/done/', views.PasswordResetDoneView.as_view(), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('reset/done', views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    path('sign_up/', SignUpView.as_view(), name='sign_up'),
     path('', MoviesView.as_view(), name='index'),
     path('demo', generate_demo, name='demo'),
     path('movie/create', MovieCreateView.as_view(), name='movie_create'),

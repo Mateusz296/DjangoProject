@@ -16,14 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from viewer.views import MoviesView, MovieCreateView, MovieUpdateView, MovieDeleteView
+from viewer.views import MoviesView, MovieCreateView, MovieUpdateView,\
+    MovieDeleteView, SubmittableLoginView
 from viewer.models import Genre, Movie
+from django.contrib.auth.views import LoginView
+
 from viewer.views import generate_demo
 
 admin.site.register(Genre)
 admin.site.register(Movie)
 
 urlpatterns = [
+    path('accounts/login/', SubmittableLoginView.as_view(), name='login'),
     path('admin/', admin.site.urls),
     path('', MoviesView.as_view(), name='index'),
     path('demo', generate_demo, name='demo'),

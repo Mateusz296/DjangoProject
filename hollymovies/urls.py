@@ -27,8 +27,13 @@ from accounts.views import SubmittableLoginView, SubmittablePasswordChangeForm, 
 
 from django.contrib.auth import views
 
-admin.site.register(Genre)
-admin.site.register(Movie)
+from viewer.admin import MovieAdmin
+
+admin.site.register(Movie, MovieAdmin)
+
+
+# admin.site.register(Genre)
+# admin.site.register(Movie)
 
 urlpatterns = [
     path('accounts/login/', SubmittableLoginView.as_view(), name='login'),

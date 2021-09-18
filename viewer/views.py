@@ -24,7 +24,7 @@ def generate_demo(request):
     )
 
 
-class MoviesView(LoginRequiredMixin, ListView):
+class MoviesView(ListView):
     template_name = 'movies.html'
     model = Movie
 
